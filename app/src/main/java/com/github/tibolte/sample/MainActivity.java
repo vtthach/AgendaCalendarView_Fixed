@@ -21,16 +21,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements CalendarPickerController {
 
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
-    @Bind(R.id.activity_toolbar)
+    @BindView(R.id.activity_toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.agenda_calendar_view)
+    @BindView(R.id.agenda_calendar_view)
     AgendaCalendarView mAgendaCalendarView;
 
     // region Lifecycle methods
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements CalendarPickerCon
         List<IWeekItem> readyWeeks = calendarManager.getWeeks();
         mAgendaCalendarView.init(Locale.getDefault(), readyWeeks,readyDays,readyEvents,this);
         mAgendaCalendarView.addEventRenderer(new DrawableEventRenderer());
-
+        mAgendaCalendarView.enableCalenderView(true);
     }
 
     // endregion
